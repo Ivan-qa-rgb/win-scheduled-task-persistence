@@ -1,6 +1,6 @@
 # Windows Scheduled Task Persistence (schtasks)
 
-Практический кейс по закреплению в Windows через Scheduled Task (`schtasks`) с обходом PowerShell Execution Policy. Репозиторий оформлен как мини‑пример для DFIR / Blue Team / Red Team портфолио.
+Практический кейс по закреплению в Windows через Scheduled Task (`schtasks`) с обходом PowerShell Execution Policy.
 
 ---
 

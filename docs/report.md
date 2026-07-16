@@ -109,8 +109,7 @@ https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screensh
 https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-trigger.png
 
 Действие с PowerShell (Actions):
-
-https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-action.png
+https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./powershell-chain.png
 
 PowerShell — полная цепочка создания / запуска / проверки:
 https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./powershell-chain.png

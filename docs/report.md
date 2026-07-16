@@ -99,6 +99,17 @@ Test-Path "C:\Windows\Tasks\svchost-update.out"  # False
 schtasks /Run /TN "SystemUpdate"
 Test-Path "C:\Windows\Tasks\svchost-update.out"  # True
 ```
+## 4.6. Скриншоты Task Scheduler
+
+**Создание задачи (General):**  
+![Task General](../screenshots/task-general.png)
+
+**Настройка триггера (Triggers):**  
+![Task Trigger](../screenshots/task-trigger.png)
+
+**Действие с PowerShell (Actions):**  
+![Task Action](../screenshots/task-action.png)
+
 
 ## 5. Артефакты атаки
 

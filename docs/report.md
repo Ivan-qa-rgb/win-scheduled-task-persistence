@@ -114,7 +114,7 @@ Test-Path "C:\Windows\Tasks\svchost-update.out"  # True
 
 PowerShell — полная цепочка создания / запуска / проверки:
 
-screenshots./powershell-chain.png
+![Task Action](screenshots./powershell-chain.png)
 
 
 

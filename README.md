@@ -1,8 +1,8 @@
 # Windows Scheduled Task Persistence (T1053.005)
 
 [![MITRE ATT&CK](https://img.shields.io/badge/MITRE-T1053.005-red)](https://attack.mitre.org/techniques/T1053/005/)
-[![Platform](https://img.shields.io/badge/Platform-Windows-blue)]()
-[![Privilege](https://img.shields.io/badge/Privilege-Administrator-orange)]()
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![Privilege](https://img.shields.io/badge/Privilege-Administrator-orange)
 
 Кейс по закреплению в Windows через Scheduled Task (schtasks) с обходом PowerShell Execution Policy.  
 Red Team — создание механизма persistence. Blue Team — обнаружение, анализ артефактов и ликвидация.

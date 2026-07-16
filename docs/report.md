@@ -102,7 +102,7 @@ Test-Path "C:\Windows\Tasks\svchost-update.out"  # True
 ## 4.6. Скриншоты Task Scheduler
 Создание задачи в планировщике (General):
 
-![Task General](../screenshots/task-general.png)
+[![Task General](../screenshots/task-general.png)](https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-general.png)
 
 Настройка триггера (Triggers):
 

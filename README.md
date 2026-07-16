@@ -5,7 +5,7 @@
 
 ## Скриншот
 
-<img src="screenshots/win_scheduled_task_persistence_systemupdate.png" width="900" alt="Windows Scheduled Task persistence case">
+<img src="Снимок экрана (4041).png" width="900" alt="Windows Scheduled Task persistence case">
 
 ---
 

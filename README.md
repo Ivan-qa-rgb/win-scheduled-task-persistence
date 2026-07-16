@@ -1,59 +1,52 @@
-# Windows Scheduled Task Persistence (schtasks)
+# Windows Scheduled Task Persistence (T1053.005)
 
-Практический кейс по закреплению в Windows через Scheduled Task (`schtasks`) с обходом PowerShell Execution Policy. 
-Репозиторий показывает полную цепочку: подготовка PowerShell‑скрипта, создание задачи `SystemUpdate`, проверка выполнения и артефактов, а также Blue Team‑подход к поиску и удалению такой задачи. 
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-T1053.005-red)](https://attack.mitre.org/techniques/T1053/005/)
+[![Platform](https://img.shields.io/badge/Platform-Windows-blue)]()
+[![Privilege](https://img.shields.io/badge/Privilege-Administrator-orange)]()
 
-## Скриншот
-
-<img src="Снимок экрана (4041).png" width="900" alt="Windows Scheduled Task persistence case">
-
----
+Кейс по закреплению в Windows через Scheduled Task (schtasks) с обходом PowerShell Execution Policy.  
+Red Team — создание механизма persistence. Blue Team — обнаружение, анализ артефактов и ликвидация.
 
 ## Быстрый старт
 
-1. Создать скрипт:
+Создание маркерного скрипта:
 
-   ```powershell
-   'New-Item -ItemType File -Path "C:\Windows\Tasks\svchost-update.out" -Force -ErrorAction SilentlyContinue' |
-     Out-File -FilePath "C:\Windows\Tasks\svchost-update.ps1" -Encoding UTF8
-   ```
+```powershell
+'New-Item -ItemType File -Path "C:\Windows\Tasks\svchost-update.out" -Force -ErrorAction SilentlyContinue' |
+  Out-File -FilePath "C:\Windows\Tasks\svchost-update.ps1" -Encoding UTF8
+```
 
-2. Проверить вручную с обходом Execution Policy:
+Создание задачи планировщика:
 
-   ```powershell
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Windows\Tasks\svchost-update.ps1"
-   Test-Path "C:\Windows\Tasks\svchost-update.out"
-   ```
+```powershell
+schtasks /Create /TN "SystemUpdate" /SC ONCE /ST 23:59 /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Windows\Tasks\svchost-update.ps1" /F
+```
 
-3. Создать задачу:
+Проверка persistence:
 
-   ```powershell
-   schtasks /Create /TN "SystemUpdate" /SC ONCE /ST 23:59 /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Windows\Tasks\svchost-update.ps1" /F
-   ```
+```powershell
+schtasks /Run /TN "SystemUpdate"
+Start-Sleep -Seconds 10
+Test-Path "C:\Windows\Tasks\svchost-update.out"
+```
 
-4. Запустить задачу и убедиться, что persistence сработал:
+## Структура
 
-   ```powershell
-   schtasks /Run /TN "SystemUpdate"
-   Start-Sleep -Seconds 10
-   Test-Path "C:\Windows\Tasks\svchost-update.out"
-   ```
+- `red-team/` — скрипты создания persistence (скрипт, задача, проверка).
+- `blue-team/` — детект через логи, PowerShell и Sigma‑правило.
+- `ir/` — скрипт удаления задачи и артефактов.
+- `docs/report.md` — полный технический отчёт (T1053.005).
+- `screenshots/` — GUI Task Scheduler и PowerShell‑цепочка.
 
----
+## Технический отчёт
 
-## Структура проекта
+Подробный разбор техники, артефактов и методов детекта:  
+[docs/report.md](docs/report.md)
 
-- `scripts/svchost-update.ps1` — payload, создающий артефакт `svchost-update.out`.
-- `docs/overview.md` — описание кейса, Red Team и Blue Team‑заметки.
-- `screenshots/` — скриншоты с настройкой и результатами.
+## Автор
 
----
-
-## Связанные работы
-
-Другие мои кейсы по DFIR / Blue Team / Red Team:
-
-- [powershell-shellcode-case](https://github.com/Ivan-qa-rgb/powershell-shellcode-case)
-- [track-forensics-incident](https://github.com/Ivan-qa-rgb/track-forensics-incident)
-- [incident-reports-ad-wmi-lateral-movement](https://github.com/Ivan-qa-rgb/incident-reports-ad-wmi-lateral-movement.md)
-- Портфолио‑сайт: https://ivan-qa-rgb.github.io/cybersecurity-resume/
+- Портфолио: https://ivan-qa-rgb.github.io/cybersecurity-resume/
+- Другие кейсы:
+  - https://github.com/Ivan-qa-rgb/powershell-shellcode-case
+  - https://github.com/Ivan-qa-rgb/track-forensics-incident
+  - https://github.com/Ivan-qa-rgb/incident-reports-ad-wmi-lateral-movement

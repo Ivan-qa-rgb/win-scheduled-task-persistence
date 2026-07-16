@@ -112,7 +112,7 @@ https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screensh
 https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./powershell-chain.png
 
 PowerShell — полная цепочка создания / запуска / проверки:
-https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./powershell-chain.png
+https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-action.png
 
 
 

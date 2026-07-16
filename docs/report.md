@@ -113,7 +113,7 @@ Test-Path "C:\Windows\Tasks\svchost-update.out"  # True
 ![Task Action](../screenshots/task-action.png)
 
 PowerShell — полная цепочка создания / запуска / проверки:
-![PowerShell](../screenshots/powershell-chain.png)
+https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./powershell-chain.png
 
 
 

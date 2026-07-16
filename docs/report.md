@@ -106,7 +106,7 @@ Test-Path "C:\Windows\Tasks\svchost-update.out"  # True
 
 Настройка триггера (Triggers):
 
-[![Task Trigger](../screenshots/task-trigger.png)](https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-trigger.png)
+https://github.com/Ivan-qa-rgb/win-scheduled-task-persistence/blob/main/screenshots./task-trigger.png
 
 Действие с PowerShell (Actions):
 
